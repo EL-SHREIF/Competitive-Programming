@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    char c;
+    cin>>c;
+    string s;
+    cin>>s;
+    char x [30] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l',';',  'z','x','c','v','b','n','m',',','.','/'};
+    if( c=='R')
+    {
+        for(int i=0;i<s.length();i++)
+        {
+          for(int j=0;j<30;j++)
+          {
+              if(s[i]==x[j])
+              {
+                  s[i]=x[j-1];
+                  break;
+              }
+          }
+        }
+    }
+    if(c=='L')
+    {
+        for(int i=0;i<s.length();i++)
+        {
+              for(int j=0;j<30;j++)
+          {
+                  if(s[i]==x[j])
+              {
+                  s[i]=x[j+1];
+                  break;
+              }
+        }}
+    }
+    cout<<s;
+}

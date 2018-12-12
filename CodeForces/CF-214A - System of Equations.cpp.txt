@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "math.h"
+using namespace std;
+
+int main()
+{
+    long long int a,b,n,m,a1;
+    cin>>n>>m;
+    int num=0;
+    a=0;
+    while(1){
+        b = sqrt(m-a);
+        if ((b * b) == m-a)
+        {
+            if( (a*a)==n-b ){
+
+            num++;
+        }
+        }
+        a++;
+        if (a>m)
+        {
+            break;
+        }
+    }
+    a1=a;
+    b=0;
+    while(1){
+        a = sqrt(n-b);
+        if ((a * a) == n-b)
+        {
+            if(a>=a1){
+            if((b*b)==m-a){
+
+            num++;
+            }}
+        }
+        b++;
+        if (b>n)
+        {
+
+            break;
+        }
+    }
+    cout<<num;
+
+}

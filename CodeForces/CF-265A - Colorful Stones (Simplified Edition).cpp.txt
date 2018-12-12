@@ -1,0 +1,31 @@
+#include <iostream>
+#include<math.h>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    string n,m;
+    cin>>n>>m;
+    char h [100000];
+    char k [100000];
+
+    for (int i=0;i<n.length();i++)
+    {
+        h[i]=n[i];
+    }
+    for (int i=0;i<m.length();i++)
+    {
+        k[i]=m[i];
+    }
+    int state=0;
+    for(int i=0;i<m.length();i++)
+    {
+        if(k[i]==h[state])
+        {
+            state++;
+        }
+    }
+   state++;
+   cout<<state;
+  }

@@ -1,0 +1,51 @@
+#include <iostream>
+#include<math.h>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    int n;
+    float h [100000];
+    cin>>n;
+    for (int i=0;i<n;i++)
+    {
+        cin>>h[i];
+
+    }
+     sort(h,h+n);
+     float high[100000];
+     float low [100000];
+     int j=0;
+     int k=0;
+     high[0]=1000000;
+     low[0]=1;
+    for(int i=0;i<n;i++)
+    {
+      if (h[i]>500000)
+      {
+          high[j]=h[i];
+          j++;
+      }
+      else
+        {
+        low[k]=h[i];
+        k++;
+        }
+    }
+    int m,l;
+    if(k==0)
+    {
+        m=0;
+    }
+    else{m=k-1;}
+    float dis1=1000000-high[(0)];
+    float dis2=low[(m)]-1;
+    if(dis1>dis2)
+    {
+        cout<<dis1;
+    }
+    else{
+        cout<<dis2;
+    }
+  }

@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+
+int main()
+{
+   int T;
+   cin>>T;
+   string words [100];
+   for(int i=0;i<T;i++)
+   {
+       string s;
+       cin>>s;
+       int n=s.length();
+       if(n>10)
+       {
+          std::stringstream ss;
+          ss <<(n-2);
+          std::string str;
+          ss >> str;
+          words[i]=s[0]+str+s[n-1];
+       }
+       else
+       {
+          words [i] = s;
+       }
+   }
+    for(int i=0;i<T;i++)
+    {
+        cout<<endl<<words[i];
+    }
+}

@@ -1,0 +1,47 @@
+#include <iostream>
+#include "string"
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    unsigned n,q,z;
+    vector <unsigned int > a;
+    vector <unsigned int > b;
+    vector <unsigned int > c;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>z;
+        a.push_back(z);
+    }
+    b.push_back(a[0]);
+    for(int i=1;i<n;i++)
+    {
+        b.push_back(a[i]+b[i-1]);
+    }
+    cin>>q;
+    for(int i=0;i<q;i++)
+    {
+        cin>>z;
+        vector <unsigned int >:: iterator up;
+        up=lower_bound(b.begin(),b.end(),z);
+        if( (up - b.begin()) > (n-1) )
+        {
+        c.push_back(n);
+        }
+
+        else{
+            c.push_back(up-b.begin()+1);
+        }
+
+    }
+    for(int i=0;i<q;i++)
+    {
+        cout<<c[i]<<endl;
+    }
+
+}

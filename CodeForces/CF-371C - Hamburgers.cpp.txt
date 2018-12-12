@@ -1,0 +1,89 @@
+#include <iostream>
+#include "string"
+using namespace std;
+
+int main()
+{
+    string s;
+    cin >>s;
+    int nb,ns,nc;
+    int pb,ps,pc;
+     long long int r;
+    cin>>nb>>ns>>nc>>pb>>ps>>pc>>r;
+    unsigned long long int  num =0;
+    int bnum=0,snum=0,cnum=0;
+    for (int i=0;i<s.length();i++){
+         switch (s[i]){
+                case 'B':
+                    bnum++;
+                    break;
+
+                case 'S':
+                    snum++;
+                    break;
+
+                case 'C':
+                    cnum++;
+                    break;
+                }
+    }
+
+    while(r!=0){
+        for (int i=0;i<s.length();i++)
+        {
+          switch (s[i]){
+                case 'B':
+                    if(nb !=0 )
+                    {
+                        nb--;
+                    }
+                    else
+                    {
+                        r=r-pb;
+                    }
+                    break;
+
+                case 'S':
+                    if(ns !=0 )
+                    {
+                            ns--;
+                    }
+                    else
+                    {
+                        r=r-ps;
+                    }
+                    break;
+
+                case 'C':
+                    if(nc !=0 )
+                    {
+                        nc--;
+                    }
+                     else
+                    {
+                        r=r-pc;
+                    }
+                    break;
+                }
+                if(r==0)
+                {
+                    if(i==s.length()-1)
+                    {
+                        num++;
+                    }
+                    break;
+                }
+          }
+        if(r>0){
+          num++;
+        }
+          if (nb ==0 && ns ==0 && nc ==0)
+          {
+              break;
+          }
+        }
+        long long int n;
+        n=r/(pb*bnum+ps*snum+pc*cnum);
+        num=num+n;
+        cout<<num<<endl;
+    }

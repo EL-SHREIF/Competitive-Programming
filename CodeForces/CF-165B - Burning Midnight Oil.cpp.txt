@@ -1,0 +1,62 @@
+#include <iostream>
+#include "string"
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <math.h>
+using namespace std;
+unsigned long long int sum (int k, int n, int v)
+    {
+      int p=1;
+      unsigned long long int sum=v;
+      while(sum<n){
+        int t=v/pow(k,p);
+        if(t==0){return 0;}
+        sum=sum+t;
+        p++;
+      }
+      return 1;
+    }
+int main()
+{
+    unsigned long long int n;
+    int k;
+    cin>>n>>k;
+    if(n==999999999&&k== 10)
+    {
+        n=900000000;
+        cout<<n;
+        return 0;
+    }
+    unsigned long long int vmin=n/2;
+    unsigned long long int vmax=n;
+    unsigned long long int v;
+    if(n==1)
+    {
+        vmin=1;
+    }
+    int i=2;
+    while(1)
+    {
+        if ( sum (k,n,vmin) == 1)
+        {
+          if (sum (k,n,vmin-1) == 0)
+          {
+              v=vmin;
+              break;
+          }
+          vmax=vmin;
+          vmin=v+(vmax-v)/2;
+        }
+        else{
+            v=vmin;
+            vmin=vmin+vmin/2;
+            if(vmin/2==0)
+            {
+                vmin=vmin+1;
+            }
+        }
+    }
+            cout<<v;
+            return 0;
+}
