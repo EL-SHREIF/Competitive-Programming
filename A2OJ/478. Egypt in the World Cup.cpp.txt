@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+#include<string>
+#include<cstdlib>
+int main()
+{
+    int c=0;
+    int n;
+    cin>>n;
+    int x[100];
+    string teams [100][100];
+    float scores[100][100];
+    for (int i=0;i<n;i++)
+    {
+        int y;
+        cin>>y;
+        x[i]=y;
+        for(int j=0;j<y;j++)
+        {
+            string u;
+            cin>>u;
+            teams[i][j]=u;
+            float t;
+            cin>>t;
+            scores[i][j]=t;
+        }
+    }
+     for (int i=0;i<n;i++)
+     {
+         int number=x[i];
+         float maxx=-1000;
+         for(int j=0;j<number;j++)
+         {
+             if(scores[i][j]>maxx)
+             {
+                 maxx=scores[i][j];
+                 c=j;
+             }
+         }
+         cout<<teams[i][c]<<endl;
+     }
+}
