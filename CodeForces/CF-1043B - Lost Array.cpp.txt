@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+#include <sstream>
+using namespace std;
+
+#define all(v)              ((v).begin()), ((v).end())
+#define sz(v)               ((int)((v).size()))
+#define clr(v, d)           memset(v, d, sizeof(v))
+#define rep(i, v)       for(int i=0;i<sz(v);++i)
+#define lp(i, n)        for(int i=0;i<(int)(n);++i)
+#define lpi(i, j, n)    for(int i=(j);i<(int)(n);++i)
+#define lpd(i, j, n)    for(int i=(j);i>=(int)(n);--i)
+
+typedef unsigned short	  us;
+typedef long long         ll;
+const ll OO = 1e8;
+
+const double EPS = (1e-7);
+int dcmp(double x, double y) { return fabs(x - y) <= EPS ? 0 : x < y ? -1 : 1; }
+
+#define pb                  push_back
+#define MP                  make_pair
+#define P(x)                cout<<#x<<" = { "<<x<<" }\n"
+typedef long double       ld;
+typedef vector<unsigned short>		    vus;
+typedef vector<int>						vi;
+typedef vector<double>					vd;
+typedef vector< vi >					vvi;
+typedef vector< vus >					vvus;
+typedef vector< vd >					vvd;
+typedef vector<string>					vs;
+typedef vector<vs>					vvs;
+typedef vector<unsigned long long int > vvv;
+
+//ofstream cout;
+//cout.open("out.txt");
+
+#define max 100
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie();
+    cout.tie();
+    int n;
+    cin>>n;
+    vi v(n);
+    v.pb(0);
+    vi pos;
+    lp(i,n)
+    {
+        cin>>v[i+1];
+        pos.pb(v[i+1]-v[i]);
+    }
+    int cnt=0;
+    vi x;
+    bool g=true;
+    lp(i,n)
+    {
+        int temp=i;
+        i=0;
+        lp(j,n)
+        {
+            if(pos[i]!=pos[j])
+            {
+                g=0;
+                break;
+            }
+            i++;
+            if(i>temp)
+                i=0;
+        }
+        if(g) {
+            cnt++;
+            x.pb(temp+1);
+        } else
+            g=1;
+        i=temp;
+    }
+    cout<<cnt<<"\n";
+    lp(i,cnt)
+        cout<<x[i]<<" ";
+    return 0;
+}
+
