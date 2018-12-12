@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+#include <sstream>
+using namespace std;
+
+#define all(v)              ((v).begin()), ((v).end())
+#define sz(v)               ((int)((v).size()))
+#define clr(v, d)           memset(v, d, sizeof(v))
+#define rep(i, v)       for(int i=0;i<sz(v);++i)
+#define lp(i, n)        for(int i=0;i<(int)(n);++i)
+#define lpi(i, j, n)    for(int i=(j);i<(int)(n);++i)
+#define lpd(i, j, n)    for(int i=(j);i>=(int)(n);--i)
+
+typedef unsigned short	  us;
+typedef long long         ll;
+const ll OO = 1e8;
+
+const double EPS = (1e-7);
+int dcmp(double x, double y) { return fabs(x - y) <= EPS ? 0 : x < y ? -1 : 1; }
+
+#define pb                  push_back
+#define MP                  make_pair
+#define P(x)                cout<<#x<<" = { "<<x<<" }\n"
+typedef long double       ld;
+typedef vector<unsigned short>		    vus;
+typedef vector<int>						vi;
+typedef vector<double>					vd;
+typedef vector< vi >					vvi;
+typedef vector< vus >					vvus;
+typedef vector< vd >					vvd;
+typedef vector<string>					vs;
+typedef vector<vs>					vvs;
+typedef vector<unsigned long long int > vvv;
+
+//ofstream cout;
+//cout.open("out.txt");
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie();
+    cout.tie();
+    string s;
+    cin>>s;
+    string str="*";
+    int col,rows,n=s.length();
+    if(n%20==0)
+        rows=n/20;
+    else
+        rows=n/20+1;
+    if(n%rows==0)
+        col=n/rows;
+    else
+        col=ceil((double)n/double(rows));
+    int ast=col*rows-n;
+    int j=0;
+    cout<<rows<<" "<<col<<endl;
+    lp(i,ast)
+    {
+        s.insert((rows-i)*(col-1),str);
+    }
+    lp(i,n+ast)
+    {
+        if(i%col==0&&i!=0)
+        {
+            cout<<endl;
+        }
+        cout<<s[i];
+
+    }
+    return 0;
+}

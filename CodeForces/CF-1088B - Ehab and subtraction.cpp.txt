@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+#include <sstream>
+using namespace std;
+
+#define all(v)              ((v).begin()), ((v).end())
+#define sz(v)               ((int)((v).size()))
+#define clr(v, d)           memset(v, d, sizeof(v))
+#define rep(i, v)       for(int i=0;i<sz(v);++i)
+#define lp(i, n)        for(int i=0;i<(int)(n);++i)
+#define lpi(i, j, n)    for(int i=(j);i<(int)(n);++i)
+#define lpd(i, j, n)    for(int i=(j);i>=(int)(n);--i)
+
+typedef unsigned short	  us;
+typedef long long         ll;
+const ll OO = 1e8;
+
+const double EPS = (1e-7);
+int dcmp(double x, double y) { return fabs(x - y) <= EPS ? 0 : x < y ? -1 : 1; }
+
+#define pb                  push_back
+#define MP                  make_pair
+#define P(x)                cout<<#x<<" = { "<<x<<" }\n"
+typedef long double       ld;
+typedef vector<unsigned short>		    vus;
+typedef vector<int>						vi;
+typedef vector<double>					vd;
+typedef vector< vi >					vvi;
+typedef vector< vus >					vvus;
+typedef vector< vd >					vvd;
+typedef vector<string>					vs;
+typedef vector<vs>					vvs;
+typedef vector<unsigned long long int > vvv;
+
+//ofstream cout;
+//cout.open("out.txt");
+
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n,k;
+    cin>>n>>k;
+    vi arr(n);
+    lp(i,n)
+    {
+        cin>>arr[i];
+    }
+    sort(all(arr));
+    int min=0;
+    int i_f=0;
+    lp(i,k)
+    {
+        lpi(i,i_f,n)
+        {
+            if( (arr[i]-min)>0  ) {
+                cout << (arr[i]-min) <<endl;
+                min=min+ (arr[i]-min) ;
+                i_f=i;
+                break;
+            }
+            if(i==n-1)
+            {
+                i_f=i;
+                cout<<"0"<<endl;
+            }
+        }
+    }
+    return 0;
+}
